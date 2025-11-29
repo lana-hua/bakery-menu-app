@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:id="@+id/main"
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:padding="32dp"
-    android:gravity="center"
     android:backgroundTint="@color/cream">
 
     <ImageView
         android:id="@+id/myImageView"
-        android:layout_width="wrap_content"
-        android:layout_height="165dp"
-        android:contentDescription="Description of the image"
-        android:src="@drawable/donutmain" />
+        android:layout_width="436dp"
+        android:layout_height="244dp"
+        android:contentDescription="donut photo"
+        android:src="@drawable/donutmain"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/titleText"
@@ -23,46 +25,67 @@
         android:text="RU Donuts!"
         android:textSize="60sp"
         android:textStyle="bold"
+        android:textColor="@color/medpink"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="40dp"
-        android:textColor="@color/medpink" />
+        app:layout_constraintTop_toBottomOf="@id/myImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
         android:id="@+id/btnCoffee"
-        android:layout_width="match_parent"
+        android:layout_width="329dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/lightpink"
+        android:padding="16dp"
         android:text="Order Coffee"
         android:textSize="20sp"
-        android:layout_marginBottom="20dp"
-        android:padding="16dp"
-        android:backgroundTint="@color/lightpink"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titleText" />
 
     <Button
         android:id="@+id/btnDonut"
-        android:layout_width="match_parent"
+        android:layout_width="329dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/lightpink"
+        android:padding="16dp"
         android:text="Order Donuts"
         android:textSize="20sp"
-        android:layout_marginBottom="20dp"
-        android:padding="16dp"
-        android:backgroundTint="@color/lightpink"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCoffee" />
 
     <Button
         android:id="@+id/btnSandwich"
-        android:layout_width="match_parent"
+        android:layout_width="329dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/lightpink"
+        android:padding="16dp"
         android:text="Order Sandwich"
         android:textSize="20sp"
-        android:layout_marginBottom="20dp"
-        android:padding="16dp"
-        android:backgroundTint="@color/lightpink"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnDonut" />
 
     <Button
         android:id="@+id/btnOrders"
-        android:layout_width="match_parent"
+        android:layout_width="329dp"
         android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/lightpink"
+        android:padding="16dp"
         android:text="View Orders"
         android:textSize="20sp"
-        android:padding="16dp"
-        android:backgroundTint="@color/lightpink"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSandwich" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
