@@ -6,7 +6,7 @@ import java.util.ArrayList;
 /**
  * Represents a Coffee menu item, including size, quantity, and optional add-ins.
  * Calculates price based on selected cup size and number of add-ins.
- * @Author Lana Huang
+ * @author Lana Huang
  */
 public class Coffee extends MenuItem {
     private CupSize size;

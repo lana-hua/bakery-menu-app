@@ -3,7 +3,7 @@ package com.example.cs213_project5.menu;
 /**
  * An abstract class MenuItem that contains a quantity and the price.
  * This class is the parent for Coffee, Sandwich, and the Donuts.
- * @Author Lana Huang, Sharon Chen
+ * @author Lana Huang, Sharon Chen
  */
 public abstract class MenuItem {
     protected int quantity;
