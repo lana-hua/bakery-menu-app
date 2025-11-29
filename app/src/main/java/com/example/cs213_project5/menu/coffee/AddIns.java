@@ -2,7 +2,7 @@ package com.example.cs213_project5.menu.coffee;
 
 /**
  * Enum of the Coffee AddIns that includes all the possible Addins that could be added to coffee
- * @Author Lana Huang
+ * @author Lana Huang
  */
 public enum AddIns {
     Cream("Whipped Cream"),

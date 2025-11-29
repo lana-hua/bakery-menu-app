@@ -2,7 +2,7 @@ package com.example.cs213_project5.menu.coffee;
 
 /**
  * Enum of the Coffee Sizes that includes all the possible Sizes that can be ordered
- * @Author Lana Huang
+ * @author Lana Huang
  */
 public enum CupSize {
     Short(2.39),
