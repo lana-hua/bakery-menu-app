@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        // Buttons
         Button btnCoffee = findViewById(R.id.btnCoffee);
         Button btnDonut = findViewById(R.id.btnDonut);
         Button btnSandwich = findViewById(R.id.btnSandwich);

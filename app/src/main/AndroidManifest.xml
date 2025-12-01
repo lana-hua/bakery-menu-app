@@ -12,6 +12,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CS213Project5">
         <activity
+            android:name=".OrdersActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SandwichActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DonutActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CoffeeActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
