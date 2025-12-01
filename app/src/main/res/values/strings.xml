@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">CS213-Project5</string>
+    <string name="donut_photo">donut photo</string>
+    <string name="ru_donuts">RU Donuts!</string>
+    <string name="order_coffee">Order Coffee</string>
+    <string name="order_donuts">Order Donuts</string>
+    <string name="order_sandwich">Order Sandwich</string>
+    <string name="view_orders">View Orders</string>
+    <string name="orders">Orders</string>
+    <string name="menu">Menu</string>
 </resources>
