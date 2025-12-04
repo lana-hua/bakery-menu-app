@@ -1,19 +1,22 @@
 package com.example.cs213_project5;
 
 public class DonutItem {
-    private String name;
+    private String flavor;
     private String type;
     private double price;
     private int quantity;
+    private int image;
 
-    public DonutItem(String name, String type, double price){
-        this.name = name;
+    public DonutItem(String flavor, String type, double price, int image){
+        this.flavor = flavor;
         this.type = type;
         this.price = price;
+        this.image = image;
+        this.quantity = 0;
     }
 
-    public String getName() {
-        return name;
+    public String getFlavor() {
+        return flavor;
     }
 
     public String getType() {
@@ -34,6 +37,10 @@ public class DonutItem {
 
     @Override
     public  String toString(){
-        return name+ " (" + type + ") - $" + String.format("%.2f", price);
+        return flavor + " (" + type + ") - $" + String.format("%.2f", price);
+    }
+
+    public int getImageResource() {
+        return image;
     }
 }
