@@ -37,6 +37,29 @@ public class Sandwich extends MenuItem {
         this.addOns = addOnsList;
     }
 
+    /**
+     * Getter method for the Bread object of the type of bread for the sandwich order.
+     * @return the bread Type
+     */
+    public Bread getBreadType() {
+        return breadType;
+    }
+
+    /**
+     * Getter method for the Protein object of the type of protein for the sandwich order.
+     * @return the protein type
+     */
+    public Protein getProteinType() {
+        return proteinType;
+    }
+
+    /**
+     * Getter method for the number of sandwiches ordered.
+     * @return the quantity of sandwiches ordered
+     */
+    public int getQuantity() {
+        return quantity;
+    }
 
     /**
      * Calculates the total price of the sandwich order.

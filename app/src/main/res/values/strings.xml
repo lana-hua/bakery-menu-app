@@ -33,10 +33,15 @@
         <item>Grande</item>
         <item>Venti</item>
     </string-array>
-    <string-array name="quantityamount">
-        <item>Short</item>
-        <item>Tall</item>
-        <item>Grande</item>
-        <item>Venti</item>
+    <string-array name="bread_types">
+        <item>Bagel</item>
+        <item>Sourdough</item>
+        <item>Wheat Bread</item>
     </string-array>
+    <string-array name="protein_types">
+        <item>Beef</item>
+        <item>Chicken</item>
+        <item>Salmon</item>
+    </string-array>
+
 </resources>
