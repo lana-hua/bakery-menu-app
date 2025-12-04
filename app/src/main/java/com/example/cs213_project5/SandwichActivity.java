@@ -177,7 +177,7 @@ public class SandwichActivity extends AppCompatActivity {
     }
 
     private void updateSubtotal() {
-        subtotalText.setText(String.format("$%.2f", sandwichOrder.price()));
+        subtotalText.setText(String.format("Subtotal: $%.2f", sandwichOrder.price()));
         subtotalText.setEnabled(false);
         subtotalText.setFocusable(false);
         subtotalText.setClickable(false);

@@ -27,7 +27,7 @@
             android:id="@+id/donutName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Plain Donut"
+            android:text="@string/plain_donut"
             android:textSize="18sp"
             android:textStyle="bold" />
 
@@ -36,7 +36,7 @@
             android:id="@+id/donutType"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Yeast Donut"
+            android:text="@string/yeast_donut"
             android:textSize="14sp"
             android:textColor="@android:color/darker_gray" />
 
@@ -45,7 +45,7 @@
             android:id="@+id/donutPrice"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="$1.99"
+            android:text="@string/_1_99"
             android:textSize="16sp"
             android:textColor="#4CAF50" />
 
@@ -54,7 +54,7 @@
             android:id="@+id/donutQuantity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Qty: 0"
+            android:text="@string/qty_0"
             android:textSize="14sp"
             android:visibility="gone" />
 
