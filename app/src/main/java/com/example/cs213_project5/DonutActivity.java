@@ -19,6 +19,8 @@ public class DonutActivity extends AppCompatActivity {
     private TextView subtotalTextView;
     private DonutAdapter donutAdapter;
     private List<DonutItem> donutItems;
+    private double donutSubtotal = 0.0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,7 @@ public class DonutActivity extends AppCompatActivity {
         subtotalTextView.setText("Subtotal: $0.00");
 
         donutItems = createDonutList();
-        donutAdapter = new DonutAdapter(this, donutItems);
+        donutAdapter = new DonutAdapter(this, donutItems, this::onDonutClicked);
         donutRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         donutRecyclerView.setAdapter(donutAdapter);
 
@@ -76,7 +78,7 @@ public class DonutActivity extends AppCompatActivity {
         setupQuantitySpinner(spinner);
 
         AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("Add " + donut.getFlavor())
+                .setTitle("Add " + donut.getFlavor() + donut.getType())
                 .setMessage("Select quantity:")
                 .setView(spinner)
                 .setPositiveButton("Add to Order", (d, which) -> {
@@ -95,6 +97,7 @@ public class DonutActivity extends AppCompatActivity {
                 android.R.layout.simple_spinner_item, quantities);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
+        spinner.setPadding(50, 12, 16, 50);
     }
 
     private void addDonutToOrder(DonutItem donut, int quantity, int position) {
@@ -104,15 +107,16 @@ public class DonutActivity extends AppCompatActivity {
         }
 
         com.example.cs213_project5.menu.MenuItem menuItem = createDonutMenuItem(donut, quantity);
-        Singleton.getInstance().addMenuItem(menuItem);
+        ShareResource.getInstance().addMenuItem(menuItem);
 
+        donutSubtotal += donut.getPrice() * quantity;
         updateSubtotal();
+
         showSuccessMessage(donut.getFlavor(), quantity);
     }
 
     private void updateSubtotal() {
-        double subtotal = Singleton.getInstance().getCurrentOrder().getTotalCost();
-        subtotalTextView.setText(String.format("Subtotal: $%.2f", subtotal));
+        subtotalTextView.setText(String.format("Subtotal: $%.2f", donutSubtotal));
     }
 
     private void showQuantityError() {
