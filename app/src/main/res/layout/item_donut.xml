@@ -18,8 +18,8 @@
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_weight="1"
+        android:layout_marginStart="16dp"
         android:orientation="vertical">
 
         <!-- Donut Name -->
@@ -37,8 +37,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Yeast Donut"
-            android:textColor="@android:color/darker_gray"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:textColor="@android:color/darker_gray" />
 
         <!-- Donut Price -->
         <TextView
@@ -46,8 +46,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$1.99"
-            android:textColor="#4CAF50"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColor="#4CAF50" />
 
         <!-- Quantity (Optional - can be hidden initially) -->
         <TextView
