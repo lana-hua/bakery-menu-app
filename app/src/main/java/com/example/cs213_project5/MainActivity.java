@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         );
 
         btnOrders.setOnClickListener(v ->
-                startActivity(new Intent(MainActivity.this, OrdersActivity.class))
+                startActivity(new Intent(MainActivity.this, OrderActivity.class))
         );
 
         btnAllOrders.setOnClickListener(v ->

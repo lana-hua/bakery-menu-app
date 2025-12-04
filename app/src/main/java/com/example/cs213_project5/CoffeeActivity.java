@@ -49,7 +49,7 @@ public class CoffeeActivity extends AppCompatActivity {
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
 
         findViewById(R.id.btnOrders).setOnClickListener(v ->
-                startActivity(new Intent(CoffeeActivity.this, OrdersActivity.class))
+                startActivity(new Intent(CoffeeActivity.this, OrderActivity.class))
         );
         Button btnPlaceOrder = findViewById(R.id.btnPlaceOrder);
         btnPlaceOrder.setOnClickListener(v -> placeOrder());

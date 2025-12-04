@@ -8,7 +8,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,7 +37,7 @@ public class SandwichActivity extends AppCompatActivity {
         findViewById(R.id.btnBack).setOnClickListener(v -> finish());
 
         findViewById(R.id.btnOrders).setOnClickListener(v ->
-                startActivity(new Intent(SandwichActivity.this, OrdersActivity.class))
+                startActivity(new Intent(SandwichActivity.this, OrderActivity.class))
         );
         Button btnPlaceOrder = findViewById(R.id.btnPlaceOrder);
         btnPlaceOrder.setOnClickListener(v -> placeOrder());
