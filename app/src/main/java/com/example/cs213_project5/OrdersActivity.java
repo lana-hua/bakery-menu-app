@@ -8,6 +8,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -101,6 +102,12 @@ public class OrdersActivity extends AppCompatActivity {
         }
         adapter.notifyDataSetChanged();
         updateCosts();
+
+        new AlertDialog.Builder(this)
+                .setTitle("Order Placed")
+                .setMessage("Placed Order Number" + currentOrder.getOrderNumber())
+                .setPositiveButton("OK", null)
+                .show();
     }
 
 

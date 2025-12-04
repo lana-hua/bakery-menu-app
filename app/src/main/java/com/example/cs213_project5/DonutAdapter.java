@@ -1,5 +1,6 @@
 package com.example.cs213_project5;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,6 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
+import java.util.Locale;
 
 
 public class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutViewHolder>{
