@@ -105,7 +105,7 @@ public class OrdersActivity extends AppCompatActivity {
 
         new AlertDialog.Builder(this)
                 .setTitle("Order Placed")
-                .setMessage("Placed Order Number" + currentOrder.getOrderNumber())
+                .setMessage("Placed Order Number " + currentOrder.getOrderNumber())
                 .setPositiveButton("OK", null)
                 .show();
     }
