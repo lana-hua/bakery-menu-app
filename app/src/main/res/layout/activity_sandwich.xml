@@ -5,14 +5,14 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SandwichActivity">
+    tools:context=".CoffeeActivity">
 
     <Button
         android:id="@+id/btnBack"
         android:layout_width="118dp"
         android:layout_height="69dp"
-        android:layout_marginStart="64dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/lightpink"
         android:padding="16dp"
         android:text="@string/menu"
@@ -21,16 +21,199 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
+        android:id="@+id/btnPlaceOrder"
+        android:layout_width="wrap_content"
+        android:layout_height="69dp"
+        android:layout_marginBottom="28dp"
+        android:backgroundTint="@color/lightpink"
+        android:padding="16dp"
+        android:text="@string/add_to_cart"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnOrders"
+        app:layout_constraintStart_toEndOf="@+id/btnBack" />
+
+    <Button
         android:id="@+id/btnOrders"
         android:layout_width="118dp"
         android:layout_height="69dp"
-        android:layout_marginEnd="60dp"
-        android:layout_marginBottom="36dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="28dp"
         android:backgroundTint="@color/lightpink"
         android:padding="16dp"
         android:text="@string/orders"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="155dp"
+        android:layout_height="160dp"
+        android:layout_marginTop="16dp"
+        android:contentDescription="@string/coffee_picture"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/coffeepagepic" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="172dp"
+        android:text="@string/quantity"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addInChipGroup"
+        app:layout_constraintVertical_bias="0.12" />
+
+    <TextView
+        android:id="@+id/protein"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose Protein:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.892"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.171" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Order Sandwiches"
+        android:textColor="@color/medpink"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.095" />
+
+    <com.google.android.material.chip.ChipGroup
+        android:id="@+id/addOnsChipGroup"
+        android:layout_width="280dp"
+        android:layout_height="116dp"
+        android:layout_marginBottom="196dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coffeeSizeSpinner"
+        app:layout_constraintVertical_bias="0.067">
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/cheese"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Cheese"
+            android:textSize="20sp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/lettuce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Lettuce"
+            android:textSize="20sp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/onion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Onion"
+            android:textSize="20sp" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/tomato"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checkable="true"
+            android:text="Tomato"
+            android:textSize="20sp" />
+    </com.google.android.material.chip.ChipGroup>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Choose Bread:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.171" />
+
+
+    <Spinner
+        android:id="@+id/proteinSpinner"
+        android:layout_width="136dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/lightpink"
+        android:entries="@array/protein_types"
+        android:textColor="@color/medpink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.857"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/protein" />
+
+    <Spinner
+        android:id="@+id/breadSpinner"
+        android:layout_width="136dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/lightpink"
+        android:entries="@array/bread_types"
+        android:textColor="@color/medpink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <Spinner
+        android:id="@+id/sandwichQuantitySpinner"
+        android:layout_width="255dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="4dp"
+        android:backgroundTint="@color/lightpink"
+        android:textColor="@color/medpink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6" />
+
+    <TextView
+        android:id="@+id/subtotalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:padding="8dp"
+        android:text="@string/subtotal_0_00"
+        android:textColor="@color/medpink"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnPlaceOrder"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
+        app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
