@@ -40,7 +40,7 @@ public class DonutActivity extends AppCompatActivity {
 
         Button btnOrders = findViewById(R.id.btnOrders);
         btnOrders.setOnClickListener(v ->
-                startActivity(new Intent(DonutActivity.this, OrdersActivity.class))
+                startActivity(new Intent(DonutActivity.this, OrderActivity.class))
         );
     }
 

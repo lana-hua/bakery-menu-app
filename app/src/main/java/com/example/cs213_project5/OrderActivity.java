@@ -16,13 +16,26 @@ import com.example.cs213_project5.menu.Order;
 import java.util.ArrayList;
 import java.util.List;
 
-public class OrdersActivity extends AppCompatActivity {
+/**
+ * Order Activity that shows the Current Order view, where user can view, change, and place their current order.
+ * From the Current Order view you can navigate to the Menu.
+ * Wired each button to each different activity and their corresponding view or to an event handler
+ * @author Lana Huang
+ */
+public class OrderActivity extends AppCompatActivity {
     private TextView subtotal, salesTax, grandTotal;
     private ListView listView;
     private ArrayAdapter<String> adapter;
     private ArrayList<String> itemNames;
     private int selectedIndex = -1;
 
+    /**
+     *
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,7 +72,7 @@ public class OrdersActivity extends AppCompatActivity {
         });
 
         findViewById(R.id.btnMenu).setOnClickListener(v ->
-                startActivity(new Intent(OrdersActivity.this, MainActivity.class))
+                startActivity(new Intent(OrderActivity.this, MainActivity.class))
         );
     }
 
