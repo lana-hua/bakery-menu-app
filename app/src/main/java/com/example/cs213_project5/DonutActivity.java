@@ -47,23 +47,23 @@ public class DonutActivity extends AppCompatActivity {
     private List<DonutItem> createDonutList() {
         List<DonutItem> items = new ArrayList<>();
 
-        items.add(new DonutItem("Plain", "Cake Donut", 2.19, R.drawable.donut_test));
-        items.add(new DonutItem("Glazed", "Cake Donut", 2.19, R.drawable.donut_test));
-        items.add(new DonutItem("Chocolate Frosted", "Cake Donut", 2.19, R.drawable.donut_test));
+        items.add(new DonutItem("Plain", "Cake Donut", 2.19, R.drawable.plain_cake_donut));
+        items.add(new DonutItem("Glazed", "Cake Donut", 2.19, R.drawable.glazed_cake_donut));
+        items.add(new DonutItem("Chocolate Frosted", "Cake Donut", 2.19, R.drawable.chocolate_frosed_cake_donut));
 
         items.add(new DonutItem("Plain", "Donut Hole", 0.39, R.drawable.plaindonuthole));
         items.add(new DonutItem("Jelly", "Donut Hole", 0.39, R.drawable.jellydonuthole));
         items.add(new DonutItem("Chocolate", "Donut Hole", 0.39, R.drawable.chocolatedonuthole));
 
-        items.add(new DonutItem("Pumpkin Spice", "Seasonal Donut", 2.49, R.drawable.donut_test));
-        items.add(new DonutItem("Spooky", "Seasonal Donut", 2.49, R.drawable.donut_test));
+        items.add(new DonutItem("Pumpkin Spice", "Seasonal Donut", 2.49, R.drawable.pumpkin_spice_seasonal_donut));
+        items.add(new DonutItem("Spooky", "Seasonal Donut", 2.49, R.drawable.spooky_seasonal_donut));
 
-        items.add(new DonutItem("Plain", "Yeast Donut", 1.99, R.drawable.donut_test));
-        items.add(new DonutItem("Glazed", "Yeast Donut", 1.99, R.drawable.donut_test));
-        items.add(new DonutItem("Chocolate Frosted", "Yeast Donut", 1.99, R.drawable.donut_test));
-        items.add(new DonutItem("Strawberry Frosted", "Yeast Donut", 1.99, R.drawable.donut_test));
-        items.add(new DonutItem("Powdered Sugar", "Yeast Donut", 1.99, R.drawable.donut_test));
-        items.add(new DonutItem("Cinnamon Sugar", "Yeast Donut", 1.99, R.drawable.donut_test));
+        items.add(new DonutItem("Plain", "Yeast Donut", 1.99, R.drawable.plain_yeast_donut));
+        items.add(new DonutItem("Glazed", "Yeast Donut", 1.99, R.drawable.glazed_yeast_donut));
+        items.add(new DonutItem("Chocolate Frosted", "Yeast Donut", 1.99, R.drawable.chocolate_frosed_yeast_donut));
+        items.add(new DonutItem("Strawberry Frosted", "Yeast Donut", 1.99, R.drawable.strawberry_frosted_yeast_donut));
+        items.add(new DonutItem("Powdered Sugar", "Yeast Donut", 1.99, R.drawable.powdered_sugar_yeast_donut));
+        items.add(new DonutItem("Cinnamon Sugar", "Yeast Donut", 1.99, R.drawable.cinnamon_sugar_yeast_donut));
 
         return items;
     }
