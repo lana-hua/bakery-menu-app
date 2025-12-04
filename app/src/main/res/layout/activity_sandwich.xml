@@ -83,10 +83,21 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.892"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.171" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.432" />
+
+    <Spinner
+        android:id="@+id/proteinSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="31dp"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="@color/lightpink"
+        android:entries="@array/protein_types"
+        android:textColor="@color/medpink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/protein" />
 
     <TextView
         android:id="@+id/textView3"
@@ -103,6 +114,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.095" />
 
+
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/addOnsChipGroup"
         android:layout_width="280dp"
@@ -112,7 +124,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/breadSpinner"
-        app:layout_constraintVertical_bias="0.067">
+        app:layout_constraintVertical_bias="0.594">
 
         <com.google.android.material.chip.Chip
             android:id="@+id/cheese"
@@ -156,35 +168,21 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.127"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.171" />
-
-
-    <Spinner
-        android:id="@+id/proteinSpinner"
-        android:layout_width="136dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="@color/lightpink"
-        android:entries="@array/protein_types"
-        android:textColor="@color/medpink"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.857"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/protein" />
+        app:layout_constraintVertical_bias="0.148" />
 
     <Spinner
         android:id="@+id/breadSpinner"
-        android:layout_width="136dp"
+        android:layout_width="wrap_content"
         android:layout_height="31dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/lightpink"
         android:entries="@array/bread_types"
         android:textColor="@color/medpink"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.129"
+        app:layout_constraintHorizontal_bias="0.51"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
