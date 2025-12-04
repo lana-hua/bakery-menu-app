@@ -26,14 +26,12 @@
     <string name="order_total">Order Total: $0.00</string>
     <string name="placed_orders">Placed Orders</string>
     <string name="cancel_order">Cancel Order</string>
+    <string name="current_order">Current Order</string>
+    <string name="sales_tax">Sales Tax: $0.00</string>
+    <string name="current_total">Total: $0.00</string>
+
 
     <string-array name="coffeesize">
-        <item>Short</item>
-        <item>Tall</item>
-        <item>Grande</item>
-        <item>Venti</item>
-    </string-array>
-    <string-array name="quantityamount">
         <item>Short</item>
         <item>Tall</item>
         <item>Grande</item>
