@@ -57,7 +57,7 @@
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/coffeepagepic" />
+        app:srcCompat="@drawable/sandwichpic" />
 
     <TextView
         android:id="@+id/textView6"
