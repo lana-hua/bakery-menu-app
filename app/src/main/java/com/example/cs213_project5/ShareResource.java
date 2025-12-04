@@ -8,7 +8,7 @@ import com.example.cs213_project5.menu.Order;
  * An instance of this class is holding the orders shared by all activities
  * @author Sharon Chen
  */
-public class ShareResource {
+public final class ShareResource {
     private static ShareResource resource;
     private Order currentOrder;
     private OrderList orderList;
