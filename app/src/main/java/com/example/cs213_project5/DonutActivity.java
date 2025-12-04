@@ -1,30 +1,23 @@
-package com.example.cs213_project5;
-
-import android.content.Intent;
-import android.os.Bundle;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.TextView;
-import android.widget.Toast;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import java.util.ArrayList;
-import java.util.List;
-
 public class DonutActivity extends AppCompatActivity {
     private RecyclerView donutRecyclerView;
-    private Spinner quantitySpinner;
-
+    private TextView subtotalTextView;
+    private DonutAdapter donutAdapter;
+    private List<DonutItem> donutItems;
+    private double donutSubtotal = 0.0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donut);
 
-        //RecyclerView donutRecyclerView= findViewById(R.id.donutRecyclerView);
+        donutRecyclerView = findViewById(R.id.donutRecyclerView);
+        subtotalTextView = findViewById(R.id.subtotalTextView);
+        subtotalTextView.setText("Subtotal: $0.00");
+
+        donutItems = createDonutList();
+        donutAdapter = new DonutAdapter(this, donutItems, this::onDonutClicked);
+        donutRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        donutRecyclerView.setAdapter(donutAdapter);
 
         Button btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> finish());
