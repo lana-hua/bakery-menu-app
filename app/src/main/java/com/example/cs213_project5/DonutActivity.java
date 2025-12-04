@@ -111,7 +111,7 @@ public class DonutActivity extends AppCompatActivity {
         donutSubtotal += donut.getPrice() * quantity;
         updateSubtotal();
 
-        showSuccessMessage(donut.getFlavor(), quantity);
+        showSuccessMessage(String.format(donut.getFlavor() + " " + donut.getType()), quantity);
     }
 
     private void updateSubtotal() {
