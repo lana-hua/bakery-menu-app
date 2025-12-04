@@ -7,72 +7,36 @@
     android:layout_height="match_parent"
     tools:context=".DonutActivity">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/order_donuts"
-        android:textColor="@color/medpink"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.125" />
-
     <Button
         android:id="@+id/btnBack"
         android:layout_width="118dp"
         android:layout_height="69dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="36dp"
         android:backgroundTint="@color/lightpink"
         android:padding="16dp"
         android:text="@string/menu"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.128"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.936" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/btnOrders"
         android:layout_width="118dp"
         android:layout_height="69dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="36dp"
         android:backgroundTint="@color/lightpink"
         android:padding="16dp"
         android:text="@string/orders"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.834"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.936" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/donutRecyclerView"
-        android:layout_width="323dp"
-        android:layout_height="309dp"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.432"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.501" />
-
-    <TextView
-        android:id="@+id/subtotalTextView"
-        android:layout_width="156dp"
-        android:layout_height="32dp"
-        android:gravity="center"
-        android:text="@string/subtotal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.802" />
+        android:layout_width="300dp"
+        android:layout_height="500dp"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="62dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

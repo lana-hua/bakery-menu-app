@@ -14,22 +14,15 @@ import java.util.List;
 
 public class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutViewHolder>{
     private List<DonutItem> donutList;
-    private OnDonutClickListener clickListener;
+    private OnDonutClickListener listener;
 
-    public interface OnDonutClickListener {
-        void onDonutClick(DonutItem donut, int position);
+    public interface OnDonutClickListener{
+        void onDonutSelected(DonutItem donut);
     }
 
-    /**
-     * Constructs a DonutAdapter with given context and donut list.
-     * @param context the application context
-     * @param donutList the list of donut items to display
-     * @param clickListener the listener of the RecyclerView
-     */
-    public DonutAdapter(Context context, List<DonutItem> donutList, OnDonutClickListener clickListener) {
-        this.context = context;
+    public DonutAdapter(List<DonutItem> donutList, OnDonutClickListener listener) {
         this.donutList = donutList;
-        this.clickListener = clickListener;  // Store the listener
+        this.listener = listener;
     }
 
     @NonNull
@@ -45,13 +38,19 @@ public class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutViewHol
 
         holder.nameText.setText(donut.getName());
         holder.typeText.setText(donut.getType());
-        holder.priceText.setText(String.format(Locale.US, "$%.2f", donut.getPrice()));
+        holder.priceText.setText(String.format("$%.2f", donut.getPrice()));
 
-        holder.imageView.setImageResource(donut.getImageResource());
+        if (donut.getQuantity() > 0){
+            holder.quantityText.setText("Qty: " + donut.getQuantity());
+            holder.quantityText.setVisibility(View.VISIBLE);
+        }
+        else{
+            holder.quantityText.setVisibility(View.GONE);
+        }
 
         holder.itemView.setOnClickListener(v -> {
-            if (clickListener != null) {
-                clickListener.onDonutClick(donut, position);
+            if (listener != null) {
+                listener.onDonutSelected(donut);
             }
         });
     }
