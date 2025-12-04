@@ -51,9 +51,9 @@ public class DonutActivity extends AppCompatActivity {
         items.add(new DonutItem("Glazed", "Cake Donut", 2.19, R.drawable.donut_test));
         items.add(new DonutItem("Chocolate Frosted", "Cake Donut", 2.19, R.drawable.donut_test));
 
-        items.add(new DonutItem("Plain", "Donut Hole", 0.39, R.drawable.donut_test));
-        items.add(new DonutItem("Jelly", "Donut Hole", 0.39, R.drawable.donut_test));
-        items.add(new DonutItem("Chocolate", "Donut Hole", 0.39, R.drawable.donut_test));
+        items.add(new DonutItem("Plain", "Donut Hole", 0.39, R.drawable.plaindonuthole));
+        items.add(new DonutItem("Jelly", "Donut Hole", 0.39, R.drawable.jellydonuthole));
+        items.add(new DonutItem("Chocolate", "Donut Hole", 0.39, R.drawable.chocolatedonuthole));
 
         items.add(new DonutItem("Pumpkin Spice", "Seasonal Donut", 2.49, R.drawable.donut_test));
         items.add(new DonutItem("Spooky", "Seasonal Donut", 2.49, R.drawable.donut_test));
