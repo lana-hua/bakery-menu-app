@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CS213Project5">
         <activity
+            android:name=".PlacedOrdersActivity"
+            android:exported="false" />
+        <activity
             android:name=".OrdersActivity"
             android:exported="false" />
         <activity

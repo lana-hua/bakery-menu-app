@@ -16,4 +16,19 @@ public abstract class MenuItem {
     public MenuItem(int quantity){
         this.quantity = quantity;
     }
+
+    /**
+     * Getter method to get the quantity of a MenuItem.
+     * @return the number of MenuItems
+     */
+    public int getQuantity() {
+        return quantity;
+    }
+
+    /**
+     * Setter method to set the quantity of a MenuItem.
+     */
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 }
