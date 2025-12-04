@@ -7,11 +7,71 @@
     android:layout_height="match_parent"
     tools:context=".DonutActivity">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".DonutActivity">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="118dp"
+            android:layout_height="69dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginBottom="36dp"
+            android:backgroundTint="@color/lightpink"
+            android:padding="16dp"
+            android:text="@string/menu"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnOrders"
+            android:layout_width="118dp"
+            android:layout_height="69dp"
+            android:layout_marginEnd="48dp"
+            android:layout_marginBottom="36dp"
+            android:backgroundTint="@color/lightpink"
+            android:padding="16dp"
+            android:text="@string/orders"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/donutRecyclerView"
+            android:layout_width="293dp"
+            android:layout_height="283dp"
+            tools:layout_editor_absoluteX="34dp"
+            tools:layout_editor_absoluteY="179dp" />
+
+        <TextView
+            android:id="@+id/subtotalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subtotal: "
+            tools:layout_editor_absoluteX="150dp"
+            tools:layout_editor_absoluteY="482dp" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Order Donuts"
+            android:textColor="@color/medpink"
+            android:textSize="50sp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="31dp"
+            tools:layout_editor_absoluteY="88dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <Button
         android:id="@+id/btnBack"
         android:layout_width="118dp"
         android:layout_height="69dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginStart="48dp"
         android:layout_marginBottom="36dp"
         android:backgroundTint="@color/lightpink"
         android:padding="16dp"
@@ -24,7 +84,7 @@
         android:id="@+id/btnOrders"
         android:layout_width="118dp"
         android:layout_height="69dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="48dp"
         android:layout_marginBottom="36dp"
         android:backgroundTint="@color/lightpink"
         android:padding="16dp"
@@ -34,9 +94,18 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="300dp"
-        android:layout_height="500dp"
-        tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="62dp" />
+        android:id="@+id/donutRecyclerView"
+        android:layout_width="293dp"
+        android:layout_height="283dp"
+        tools:layout_editor_absoluteX="34dp"
+        tools:layout_editor_absoluteY="179dp" />
+
+    <TextView
+        android:id="@+id/subtotalTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Subtotal: "
+        tools:layout_editor_absoluteX="150dp"
+        tools:layout_editor_absoluteY="482dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

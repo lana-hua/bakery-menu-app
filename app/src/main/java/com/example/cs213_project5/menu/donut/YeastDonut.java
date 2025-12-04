@@ -13,7 +13,7 @@ public class YeastDonut extends MenuItem {
     public static final String PLAIN = "Plain";
     public static final String GLAZED = "Glazed";
     public static final String CHOCOLATE_FROSTED = "Chocolate Frosted";
-    public static final String VANILLA_FROSTED = "Strawberry Frosted";
+    public static final String STRAWBERRY_FROSTED = "Strawberry Frosted";
     public static final String POWDERED_SUGAR = "Powdered Sugar";
     public static final String CINNAMON_SUGAR = "Cinnamon Sugar";
 
