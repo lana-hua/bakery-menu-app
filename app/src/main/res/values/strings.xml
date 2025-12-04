@@ -6,7 +6,9 @@
     <string name="order_donuts">Order Donuts</string>
     <string name="order_sandwich">Order Sandwich</string>
     <string name="view_all_orders">View All Orders</string>
+    <string name="delete_menuitem">Delete</string>
     <string name="orders">Orders</string>
+    <string name="add_to_cart">Add to Cart</string>
     <string name="menu">Menu</string>
     <string name="coffee_picture">coffee_picture</string>
     <string name="choose_size">Choose Size:</string>
