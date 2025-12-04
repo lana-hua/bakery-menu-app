@@ -2,13 +2,19 @@ package com.example.cs213_project5;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.Arrays;
+import java.util.List;
 
 public class CoffeeActivity extends AppCompatActivity {
 
@@ -29,5 +35,21 @@ public class CoffeeActivity extends AppCompatActivity {
         btnOrders.setOnClickListener(v ->
                 startActivity(new Intent(CoffeeActivity.this, OrdersActivity.class))
         );
+
+
+        Spinner spinner = findViewById(R.id.coffeeSizeSpinner);
+
+        List<String> items = Arrays.asList("Short", "Tall", "Grande", "Venti");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(
+                this,
+                android.R.layout.simple_spinner_item,
+                items
+        );
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
+
+
+
 }
