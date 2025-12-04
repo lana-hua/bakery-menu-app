@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         Button btnCoffee = findViewById(R.id.btnCoffee);
         Button btnDonut = findViewById(R.id.btnDonut);
         Button btnSandwich = findViewById(R.id.btnSandwich);
-        Button btnOrders = findViewById(R.id.btnOrders);
+        Button btnOrders = findViewById(R.id.btnCurrentOrder);
+        Button btnAllOrders = findViewById(R.id.btnAllOrders);
 
         btnCoffee.setOnClickListener(v ->
                 startActivity(new Intent(MainActivity.this, CoffeeActivity.class))
@@ -39,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
 
         btnSandwich.setOnClickListener(v ->
                 startActivity(new Intent(MainActivity.this, SandwichActivity.class))
+        );
+
+        btnOrders.setOnClickListener(v ->
+                startActivity(new Intent(MainActivity.this, OrdersActivity.class))
         );
 
         btnOrders.setOnClickListener(v ->

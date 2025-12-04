@@ -51,6 +51,14 @@ public class Coffee extends MenuItem {
     }
 
     /**
+     * Getter method that gets the size of the Coffee Item
+     * @return the enum CupSize
+     */
+    public CupSize getSize() {
+        return size;
+    }
+
+    /**
      * Overrides the MenuItem method price to return the order's corresponding price
      * @return price in double format
      */

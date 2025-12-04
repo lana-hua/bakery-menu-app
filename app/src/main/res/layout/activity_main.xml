@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -80,18 +81,32 @@
         app:layout_constraintTop_toBottomOf="@id/btnDonut" />
 
     <Button
-        android:id="@+id/btnOrders"
+        android:id="@+id/btnCurrentOrder"
         android:layout_width="329dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/lightpink"
         android:padding="16dp"
-        android:text="@string/view_orders"
+        android:text="@string/view_current_orders"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/btnSandwich" />
+
+    <Button
+        android:id="@+id/btnAllOrders"
+        android:layout_width="329dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/lightpink"
+        android:padding="16dp"
+        android:text="@string/view_all_orders"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnCurrentOrder" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

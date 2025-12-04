@@ -8,26 +8,27 @@ import com.example.cs213_project5.menu.Order;
  * An instance of this class is holding the orders shared by all activities
  * @author Sharon Chen
  */
-public class Singleton {
-    private static Singleton resource;
+public class ShareResource {
+    private static ShareResource resource;
     private Order currentOrder;
     private OrderList orderList;
 
     /**
      * Private constructor
      */
-    private Singleton() {
-        //do nothing to prevent a public default constructor being created by JVM
+    private ShareResource() {
+        currentOrder = new Order();
+        orderList = new OrderList();
     }
 
-    /*
+    /**
      * If the instance is not created yet, create one, otherwise return the instance (lazy approach.)
      * The synchronized keyword is essential to avoid problems in multi-threaded programs.
      * @return the reference of the only instance of this class
      */
-    public static synchronized Singleton getInstance() {
+    public static synchronized ShareResource getInstance() {
         if (resource == null)
-            resource = new Singleton();
+            resource = new ShareResource();
         return resource;
     }
 
