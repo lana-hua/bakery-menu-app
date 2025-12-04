@@ -22,12 +22,21 @@ import com.google.android.material.chip.ChipGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents the activity for displaying and ordering sandwiches.
+ * This class is used to allow users to select bread, protein, add-ons, and quantity for sandwiches and add them to their current order.
+ * @author Sharon Chen
+ */
 public class SandwichActivity extends AppCompatActivity {
     private Spinner breadSpinner, proteinSpinner, sandwichQuantitySpinner;
     private ChipGroup addOnsGroup;
     private TextView subtotalText;
     private Sandwich sandwichOrder; // model object
 
+    /**
+     * Initializes the activity and sets up the UI components.
+     * @param savedInstanceState the saved instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,6 +65,9 @@ public class SandwichActivity extends AppCompatActivity {
         updateSubtotal();
     }
 
+    /**
+     * Sets up the bread type spinner.
+     */
     private void setupBreadSpinner() {
         ArrayAdapter<CharSequence> breadAdapter = ArrayAdapter.createFromResource(
                 this,
@@ -79,6 +91,9 @@ public class SandwichActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Sets up the protein type spinner.
+     */
     private void setupProteinSpinner() {
         ArrayAdapter<CharSequence> proteinAdapter = ArrayAdapter.createFromResource(
                 this,
@@ -102,6 +117,9 @@ public class SandwichActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Sets up the quantity spinner.
+     */
     private void setupQuantitySpinner() {
         Integer[] quantities = {1,2,3,4,5,6,7,8,9,10};
 
@@ -126,6 +144,9 @@ public class SandwichActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Sets up the add-ons chip group.
+     */
     private void setupAddOnsChips() {
         addOnsGroup.setOnCheckedStateChangeListener((group, checkedIds) -> {
             ArrayList<AddOns> selected = sandwichAddOns();
@@ -140,6 +161,11 @@ public class SandwichActivity extends AppCompatActivity {
             updateSubtotal();
         });
     }
+
+    /**
+     * Gets the list of currently selected add-ons.
+     * @return ArrayList of selected AddOns
+     */
     private ArrayList<AddOns> sandwichAddOns() {
         ArrayList<AddOns> list = new ArrayList<>();
 
@@ -160,6 +186,9 @@ public class SandwichActivity extends AppCompatActivity {
         return list;
     }
 
+    /**
+     * Places the sandwich order and adds it to the shared order.
+     */
     private void placeOrder() {
         ShareResource share = ShareResource.getInstance();
 
@@ -176,6 +205,9 @@ public class SandwichActivity extends AppCompatActivity {
                 .show();
     }
 
+    /**
+     * Updates the subtotal display with the current sandwich price.
+     */
     private void updateSubtotal() {
         subtotalText.setText(String.format("Subtotal: $%.2f", sandwichOrder.price()));
         subtotalText.setEnabled(false);
