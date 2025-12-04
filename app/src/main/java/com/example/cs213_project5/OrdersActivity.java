@@ -7,12 +7,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.example.cs213_project5.menu.MenuItem;
 import com.example.cs213_project5.menu.Order;
@@ -44,7 +40,7 @@ public class OrdersActivity extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_activated_1, itemNames);
         listView.setAdapter(adapter);
 
-        updateCosts();
+        updateTotals();
         listView.setOnItemClickListener((parent, view, position, id) -> {
             selectedIndex = position;
         });
@@ -56,7 +52,7 @@ public class OrdersActivity extends AppCompatActivity {
                 currentOrder.removeItem(currentOrder.getItems().get(selectedIndex));
                 itemNames.remove(selectedIndex);
                 adapter.notifyDataSetChanged();
-                updateCosts();
+                updateTotals();
                 selectedIndex = -1;
                 listView.clearChoices();
             }
@@ -78,7 +74,7 @@ public class OrdersActivity extends AppCompatActivity {
         }
         adapter.notifyDataSetChanged();
 
-        updateCosts();
+        updateTotals();
     }
 
     private void placeCurrentOrder() {
@@ -88,9 +84,6 @@ public class OrdersActivity extends AppCompatActivity {
         if (currentOrder.getItems().isEmpty()) {
             return;
         }
-        Order orderCopy = new Order(currentOrder);
-
-        shared.getOrderList().addOrder(orderCopy);
 
         shared.placeCurrentOrder();
 
@@ -101,7 +94,7 @@ public class OrdersActivity extends AppCompatActivity {
             itemNames.add(items.get(i).toString());
         }
         adapter.notifyDataSetChanged();
-        updateCosts();
+        updateTotals();
 
         new AlertDialog.Builder(this)
                 .setTitle("Order Placed")
@@ -120,7 +113,7 @@ public class OrdersActivity extends AppCompatActivity {
         }
     }
 
-    private void updateCosts() {
+    private void updateTotals() {
         Order currentOrder = ShareResource.getInstance().getCurrentOrder();
 
         if(currentOrder.getItems().isEmpty()) {
