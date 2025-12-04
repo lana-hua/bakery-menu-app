@@ -16,10 +16,7 @@ import java.util.List;
 
 public class DonutActivity extends AppCompatActivity {
     private RecyclerView donutRecyclerView;
-    private TextView subtotalTextView;
-    private DonutAdapter donutAdapter;
-    private List<DonutItem> donutItems;
-    private double donutSubtotal = 0.0;
+    private Spinner quantitySpinner;
 
 
     @Override
@@ -27,14 +24,7 @@ public class DonutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_donut);
 
-        donutRecyclerView = findViewById(R.id.donutRecyclerView);
-        subtotalTextView = findViewById(R.id.subtotalTextView);
-        subtotalTextView.setText("Subtotal: $0.00");
-
-        donutItems = createDonutList();
-        donutAdapter = new DonutAdapter(this, donutItems, this::onDonutClicked);
-        donutRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        donutRecyclerView.setAdapter(donutAdapter);
+        //RecyclerView donutRecyclerView= findViewById(R.id.donutRecyclerView);
 
         Button btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> finish());
