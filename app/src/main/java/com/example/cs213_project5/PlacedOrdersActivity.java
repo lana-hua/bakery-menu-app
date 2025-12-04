@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.cs213_project5.menu.MenuItem;
 import com.example.cs213_project5.menu.Order;
 import com.example.cs213_project5.menu.coffee.Coffee;
 import com.example.cs213_project5.menu.coffee.CupSize;
@@ -94,6 +96,8 @@ public class PlacedOrdersActivity extends AppCompatActivity {
 
             OrderList orderList = ShareResource.getInstance().getOrderList();
 
+            showDeleteMessage(orderList.getOrders().get(selectedIndex).getOrderNumber());
+
             if (selectedIndex < orderList.getOrders().size()) {
                 orderList.removeItem(orderList.getOrders().get(selectedIndex));
             }
@@ -149,6 +153,11 @@ public class PlacedOrdersActivity extends AppCompatActivity {
 
         orderTotal.setText("Order Total: $" + String.format("%.2f", selectedOrder.getTotalCost()));
         updateTotals();
+    }
+
+    private void showDeleteMessage(int orderNum) {
+        String message = "Deleted Order Number " + orderNum;
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     private void updateTotals() {
