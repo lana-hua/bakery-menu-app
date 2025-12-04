@@ -2,37 +2,34 @@ package com.example.cs213_project5;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-import java.util.ArrayList;
-import java.util.List;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
 
 public class DonutActivity extends AppCompatActivity {
     private RecyclerView donutRecyclerView;
-    private TextView subtotalTextView;
-    private DonutAdapter donutAdapter;
-    private List<DonutItem> donutItems;
+    private Spinner quantitySpinner;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_donut);
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
+            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
+            return insets;
+        });
 
-        donutRecyclerView = findViewById(R.id.donutRecyclerView);
-        subtotalTextView = findViewById(R.id.subtotalTextView);
-        subtotalTextView.setText("Subtotal: $0.00");
-
-        donutItems = createDonutList();
-        donutAdapter = new DonutAdapter(this, donutItems);
-        donutRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        donutRecyclerView.setAdapter(donutAdapter);
+        //RecyclerView donutRecyclerView= findViewById(R.id.donutRecyclerView);
 
         Button btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> finish());
@@ -41,104 +38,5 @@ public class DonutActivity extends AppCompatActivity {
         btnOrders.setOnClickListener(v ->
                 startActivity(new Intent(DonutActivity.this, OrdersActivity.class))
         );
-    }
-
-    private List<DonutItem> createDonutList() {
-        List<DonutItem> items = new ArrayList<>();
-
-        items.add(new DonutItem("Plain", "Cake Donut", 2.19, R.drawable.donut_test));
-        items.add(new DonutItem("Glazed", "Cake Donut", 2.19, R.drawable.donut_test));
-        items.add(new DonutItem("Chocolate Frosted", "Cake Donut", 2.19, R.drawable.donut_test));
-
-        items.add(new DonutItem("Plain", "Donut Hole", 0.39, R.drawable.donut_test));
-        items.add(new DonutItem("Jelly", "Donut Hole", 0.39, R.drawable.donut_test));
-        items.add(new DonutItem("Chocolate", "Donut Hole", 0.39, R.drawable.donut_test));
-
-        items.add(new DonutItem("Pumpkin Spice", "Seasonal Donut", 2.49, R.drawable.donut_test));
-        items.add(new DonutItem("Spooky", "Seasonal Donut", 2.49, R.drawable.donut_test));
-
-        items.add(new DonutItem("Plain", "Yeast Donut", 1.99, R.drawable.donut_test));
-        items.add(new DonutItem("Glazed", "Yeast Donut", 1.99, R.drawable.donut_test));
-        items.add(new DonutItem("Chocolate Frosted", "Yeast Donut", 1.99, R.drawable.donut_test));
-        items.add(new DonutItem("Strawberry Frosted", "Yeast Donut", 1.99, R.drawable.donut_test));
-        items.add(new DonutItem("Powdered Sugar", "Yeast Donut", 1.99, R.drawable.donut_test));
-        items.add(new DonutItem("Cinnamon Sugar", "Yeast Donut", 1.99, R.drawable.donut_test));
-
-        return items;
-    }
-
-    public void onDonutClicked(DonutItem donut, int position) {
-        showQuantityDialog(donut, position);
-    }
-
-    private void showQuantityDialog(DonutItem donut, int position) {
-        Spinner spinner = new Spinner(this);
-        setupQuantitySpinner(spinner);
-
-        AlertDialog dialog = new AlertDialog.Builder(this)
-                .setTitle("Add " + donut.getFlavor())
-                .setMessage("Select quantity:")
-                .setView(spinner)
-                .setPositiveButton("Add to Order", (d, which) -> {
-                    int quantity = (Integer) spinner.getSelectedItem();
-                    addDonutToOrder(donut, quantity, position);
-                })
-                .setNegativeButton("Cancel", null)
-                .create();
-
-        dialog.show();
-    }
-
-    private void setupQuantitySpinner(Spinner spinner) {
-        Integer[] quantities = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-        ArrayAdapter<Integer> adapter = new ArrayAdapter<>(this,
-                android.R.layout.simple_spinner_item, quantities);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-    }
-
-    private void addDonutToOrder(DonutItem donut, int quantity, int position) {
-        if (quantity <= 0) {
-            showQuantityError();
-            return;
-        }
-
-        com.example.cs213_project5.menu.MenuItem menuItem = createDonutMenuItem(donut, quantity);
-        Singleton.getInstance().addMenuItem(menuItem);
-
-        updateSubtotal();
-        showSuccessMessage(donut.getFlavor(), quantity);
-    }
-
-    private void updateSubtotal() {
-        double subtotal = Singleton.getInstance().getCurrentOrder().getTotalCost();
-        subtotalTextView.setText(String.format("Subtotal: $%.2f", subtotal));
-    }
-
-    private void showQuantityError() {
-        Toast.makeText(this, "Please select a valid quantity", Toast.LENGTH_SHORT).show();
-    }
-
-    private void showSuccessMessage(String donutName, int quantity) {
-        String message = "Added " + quantity + " " + donutName + " to order";
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
-    private com.example.cs213_project5.menu.MenuItem createDonutMenuItem(DonutItem donutItem, int quantity) {
-        String type = donutItem.getType();
-        String flavor = donutItem.getFlavor();
-
-        switch (type) {
-            case "Yeast Donut":
-                return new com.example.cs213_project5.menu.donut.YeastDonut(quantity, flavor);
-            case "Cake Donut":
-                return new com.example.cs213_project5.menu.donut.CakeDonut(quantity, flavor);
-            case "Donut Hole":
-                return new com.example.cs213_project5.menu.donut.DonutHole(quantity, flavor);
-            case "Seasonal Donut":
-                return new com.example.cs213_project5.menu.donut.SeasonalDonut(quantity, flavor);
-            default:
-                return null;
-        }
     }
 }
