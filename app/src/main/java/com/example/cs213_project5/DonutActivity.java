@@ -29,7 +29,7 @@ public class DonutActivity extends AppCompatActivity {
             return insets;
         });
 
-        RecyclerView donutRecyclerView= findViewById(R.id.donutRecyclerView);
+        //RecyclerView donutRecyclerView= findViewById(R.id.donutRecyclerView);
 
         Button btnBack = findViewById(R.id.btnBack);
         btnBack.setOnClickListener(v -> finish());
