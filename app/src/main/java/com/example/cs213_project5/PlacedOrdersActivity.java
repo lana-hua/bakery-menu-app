@@ -26,6 +26,12 @@ import com.google.android.material.chip.ChipGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Placed Orders Activity that shows the Placed Order view, where user can view and cancel all orders.
+ * From the Placed Orders view you can navigate to the Menu.
+ * Wired each button to each different activity and their corresponding view or to an event handler
+ * @author Lana Huang
+ */
 public class PlacedOrdersActivity extends AppCompatActivity {
     private Spinner orderNumberSpinner;
     private TextView orderTotal, grandTotal;
@@ -34,6 +40,14 @@ public class PlacedOrdersActivity extends AppCompatActivity {
     private ArrayList<String> itemNames;
     private int selectedIndex = -1;
 
+    /**
+     * This method is executed only once when first creating the Placed Orders activity.
+     * It initializes and sets up button, ListView, Spinner, and TextViews that is used for user interaction.
+     * It updates the Order Total and the Grand Total.
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,9 +66,12 @@ public class PlacedOrdersActivity extends AppCompatActivity {
 
         setupOrderSpinner();
         setupDeleteButton();
-
     }
 
+    /**
+     * This sets up the Order Spinner where each order placed is viewable
+     * It displays by the Order Number and updates the ListView that corresponds with the items in the selected Order Number
+     */
     private void setupOrderSpinner() {
         OrderList orderList = ShareResource.getInstance().getOrderList();
 
@@ -73,19 +90,32 @@ public class PlacedOrdersActivity extends AppCompatActivity {
         );
         spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         orderNumberSpinner.setAdapter(spinnerAdapter);
-
         orderNumberSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+
+            /**
+             * Event handler when selected implmented in the anonymous inner class.
+             * It calls loadOrderItems to update the ListView.
+             */
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int index, long id) {
                 selectedIndex = index;
                 loadOrderItems(index);
             }
 
+            /**
+             * Event handler when nothing selected implmented in the anonymous inner class.
+             */
             @Override
-            public void onNothingSelected(AdapterView<?> parent) { }
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
         });
     }
 
+    /**
+     * This method sets up the delete order button that gets the selected order and removes it from the list of orders
+     * It sends a Toast delete message and refreshes the ListView and Spinner
+     */
     private void setupDeleteButton() {
         Button deleteButton = findViewById(R.id.btnCancelOrder);
 
@@ -106,6 +136,9 @@ public class PlacedOrdersActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * This method refreshes the Spinner without the deleted Order
+     */
     private void refreshAfterDelete() {
         OrderList orderList = ShareResource.getInstance().getOrderList();
 
@@ -115,7 +148,6 @@ public class PlacedOrdersActivity extends AppCompatActivity {
         for (int i = 0; i < orders.size(); i++) {
             numbers.add("Order #" + orders.get(i).getOrderNumber());
         }
-
 
         ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(
                 this,
@@ -135,6 +167,10 @@ public class PlacedOrdersActivity extends AppCompatActivity {
         selectedIndex = -1;
     }
 
+    /**
+     * This method loads all the MenuItems from the selected Order from the order list.
+     * @param orderIndex the index of the selected order
+     */
     private void loadOrderItems(int orderIndex) {
         OrderList orderList = ShareResource.getInstance().getOrderList();
         Order selectedOrder = orderList.getOrders().get(orderIndex);
@@ -155,11 +191,18 @@ public class PlacedOrdersActivity extends AppCompatActivity {
         updateTotals();
     }
 
+    /**
+     * This method shows a Toast message with the order number of the deleted order.
+     * @param orderNum the order number of the deleted order.
+     */
     private void showDeleteMessage(int orderNum) {
         String message = "Deleted Order Number " + orderNum;
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * This method updates the grand total of all the orders in the order list.
+     */
     private void updateTotals() {
         OrderList orderList = ShareResource.getInstance().getOrderList();
 

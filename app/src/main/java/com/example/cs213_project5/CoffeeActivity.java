@@ -30,10 +30,10 @@ public class CoffeeActivity extends AppCompatActivity {
     private Spinner sizeSpinner, quantitySpinner;
     private ChipGroup addInsGroup;
     private TextView subtotalText;
-    private Coffee coffeeOrder; // model object
+    private Coffee coffeeOrder;
 
     /**
-     * This method is executed only once when first creating the activity.
+     * This method is executed only once when first creating the Coffee activity.
      * It initializes and sets up buttons, Spinner, and ChipGroup that is used for user interaction.
      * It updates the Subtotal.
      * @param savedInstanceState If the activity is being re-initialized after

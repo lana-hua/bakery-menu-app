@@ -16,7 +16,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
 
     /**
-     * This method is executed when the system first creates the activity.
+     * This method is executed when the system first creates the Main activity.
      * It instantiates each button on the Main Menu including:
      *  Order Coffee
      *  Order Donuts

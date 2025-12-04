@@ -32,7 +32,10 @@ public class OrderActivity extends AppCompatActivity {
     private int selectedIndex = -1;
 
     /**
-     *
+     * This method is executed only once when first creating the Order activity.
+     * It initializes and sets up buttons, ListView, and TextViews that is used for user interaction.
+     * It updates the Subtotal.
+     * It also deletes a MenuItem if selected and deleted
      * @param savedInstanceState If the activity is being re-initialized after
      *     previously being shut down then this Bundle contains the data it most
      *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
@@ -56,9 +59,7 @@ public class OrderActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
 
         updateTotals();
-        listView.setOnItemClickListener((parent, view, position, id) -> {
-            selectedIndex = position;
-        });
+        listView.setOnItemClickListener((parent, view, position, id) -> {selectedIndex = position;});
 
         Button btnDelete = findViewById(R.id.btnDeleteMenuItem);
         btnDelete.setOnClickListener(v -> {
@@ -74,16 +75,22 @@ public class OrderActivity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btnMenu).setOnClickListener(v ->
-                startActivity(new Intent(OrderActivity.this, MainActivity.class))
-        );
+        findViewById(R.id.btnMenu).setOnClickListener(v -> startActivity(new Intent(OrderActivity.this, MainActivity.class)));
     }
 
+    /**
+     * This method uses Toast to make a popup alert that the MenuItem is deleted
+     * @param item MenuItem that's being deleted
+     */
     private void showDeleteMessage(MenuItem item) {
         String message = "Deleted " + item.toString();
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
+    /**
+     * When the activity comes to the foreground and interacts with the user.
+     * Updates the itemNames with the current order's items.
+     */
     @Override
     protected void onResume() {
         super.onResume();
@@ -98,6 +105,10 @@ public class OrderActivity extends AppCompatActivity {
         updateTotals();
     }
 
+    /**
+     * This method places the current order to the list of orders from the ShareResource class.
+     * It sends out an AlertDialog after placing the order.
+     */
     private void placeCurrentOrder() {
         ShareResource shared = ShareResource.getInstance();
         Order currentOrder = shared.getCurrentOrder();
@@ -125,6 +136,9 @@ public class OrderActivity extends AppCompatActivity {
     }
 
 
+    /**
+     * This method is for loading the order items into itemNames
+     */
     private void loadOrderItems() {
         itemNames = new ArrayList<>();
         Order currentOrder = ShareResource.getInstance().getCurrentOrder();
@@ -134,6 +148,9 @@ public class OrderActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Used for calculating the totals to update the totals everytime the order is changed.
+     */
     private void updateTotals() {
         Order currentOrder = ShareResource.getInstance().getCurrentOrder();
 
