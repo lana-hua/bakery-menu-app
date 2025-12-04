@@ -2,10 +2,12 @@ package com.example.cs213_project5;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -62,6 +64,7 @@ public class OrderActivity extends AppCompatActivity {
         btnDelete.setOnClickListener(v -> {
             if (selectedIndex != -1) {
                 Order currentOrder = ShareResource.getInstance().getCurrentOrder();
+                showDeleteMessage(currentOrder.getItems().get(selectedIndex));
                 currentOrder.removeItem(currentOrder.getItems().get(selectedIndex));
                 itemNames.remove(selectedIndex);
                 adapter.notifyDataSetChanged();
@@ -74,6 +77,11 @@ public class OrderActivity extends AppCompatActivity {
         findViewById(R.id.btnMenu).setOnClickListener(v ->
                 startActivity(new Intent(OrderActivity.this, MainActivity.class))
         );
+    }
+
+    private void showDeleteMessage(MenuItem item) {
+        String message = "Deleted " + item.toString();
+        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override
