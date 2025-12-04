@@ -23,6 +23,15 @@
     <string name="quantity">Quantity:</string>
     <string name="view_current_orders">View Current Order</string>
     <string name="subtotal">Subtotal:</string>
+    <string name="placed_orders">Placed Orders</string>
+    <string name="cancel_order">Cancel Order</string>
+    <string name="grand_total">Grand Total: $0.00</string>
+    <string name="order_total">Order Total: $0.00</string>
+
+
+
+
+
     <string-array name="coffeesize">
         <item>Short</item>
         <item>Tall</item>
