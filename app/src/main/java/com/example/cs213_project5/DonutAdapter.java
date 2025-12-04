@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.Locale;
 
 /**
- * Adapter for displaying donut items in a RecyclerView.
- * Follows the same pattern as the teacher's ItemsAdapter.
+ * Represents an adapter for displaying donut items in a RecyclerView.
+ * This class is used to manage the display of donut items in DonutActivity.
  * @author Sharon Chen
  */
 public class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutViewHolder> {
@@ -23,6 +23,9 @@ public class DonutAdapter extends RecyclerView.Adapter<DonutAdapter.DonutViewHol
     private List<DonutItem> donutList;
     private OnDonutClickListener clickListener;
 
+    /**
+     * Interface for handling donut item clicks.
+     */
     public interface OnDonutClickListener {
         void onDonutClick(DonutItem donut, int position);
     }
